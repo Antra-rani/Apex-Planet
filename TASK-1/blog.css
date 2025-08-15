@@ -81,6 +81,27 @@ main {
 .search-input:focus {
     border: #00563E;
 }
+
+.category-filter {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+.filter-btn {
+    background: #ecf0f1;
+    color: #2c3e50;
+    border: none;
+    padding: 0.7rem 1.5rem;
+    margin: 0.25rem;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 0.9rem;
+}
+.filter-btn:hover, .filter-btn.active {
+    background: #3498db;
+    color: white;
+}
+
 .blog-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
