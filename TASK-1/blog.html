@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wild Life Chronicles - Animal Blog</title>
+    <link rel="stylesheet" href="blog.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Wild Life Chronicles</h1>
+            <p>Exploring the fascinating world of animals</p>
+        </div>
+    </header>
+
+    <nav>
+        <div class="container">
+            <ul>
+                <li><a href="#" class="nav-link active" data-category="all">All Posts</a></li>
+                <li><a href="#" class="nav-link" data-category="mammals">Mammals</a></li>
+                <li><a href="#" class="nav-link" data-category="birds">Birds</a></li>
+                <li><a href="#" class="nav-link" data-category="marine">Marine Life</a></li>
+                <li><a href="#" class="nav-link" data-category="reptiles">Reptiles</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main>
+        <div class="container">
+            <div class="search-bar">
+                <input type="text" class="search-input" id="searchInput" placeholder="Search for animals...">
+            </div>
+            <div class="blog-grid" id="blogGrid">
+                <article class="blog-post" data-category="mammals" data-id="1">
+                    <div class="post-image">
+                        <img src="Elephant.png">
+                    </div>
+                    <div class="post-content">
+                        <div class="post-meta">March 15, 2024 • Mammals</div>
+                        <h2 class="post-title">The Gentle Giants: Understanding African Elephants</h2>
+                        <p class="post-excerpt">Discover the fascinating social structure and intelligence of African elephants, the largest land mammals on Earth. Learn about their complex family bonds and conservation efforts.</p>
+                        <a href="#" class="read-more">Read More →</a>
+                    </div>
+                </article>
+                <article class="blog-post" data-category="birds" data-id="2">
+                    <div class="post-image">
+                        <img src="Puffins.png">
+                    </div>
+                    <div class="post-content">
+                        <div class="post-meta">March 12, 2024 • Birds</div>
+                        <h2 class="post-title">Arctic Puffins: Masters of Sea and Sky</h2>
+                        <p class="post-excerpt">Explore the remarkable abilities of these charming seabirds, from their incredible diving skills to their colorful seasonal plumage transformations.</p>
+                        <a href="#" class="read-more">Read More →</a>
+                    </div>
+                </article>
+                <article class="blog-post" data-category="marine" data-id="3">
+                    <div class="post-image">
+                        <img src="Sea-turtles.png">
+                    </div>
+                    <div class="post-content">
+                        <div class="post-meta">March 10, 2024 • Marine Life</div>
+                        <h2 class="post-title">Sea Turtles: Ancient Mariners of the Ocean</h2>
+                        <p class="post-excerpt">Journey into the world of sea turtles, ancient creatures that have navigated our oceans for over 100 million years. Learn about their incredible migration patterns.</p>
+                        <a href="#" class="read-more">Read More →</a>
+                    </div>
+                </article>
+                <article class="blog-post" data-category="mammals" data-id="4">
+                    <div class="post-image">
+                        <img src="Fox.png">
+                    </div>
+                    <div class="post-content">
+                        <div class="post-meta">March 8, 2024 • Mammals</div>
+                        <h2 class="post-title">The Cunning Red Fox: Nature's Adaptable Hunter</h2>
+                        <p class="post-excerpt">Uncover the secrets of the red fox's success across diverse habitats worldwide. From hunting techniques to family dynamics, these creatures are full of surprises.</p>
+                        <a href="#" class="read-more">Read More →</a>
+                    </div>
+                </article>
+                <article class="blog-post" data-category="reptiles" data-id="5">
+                    <div class="post-image">
+                        <img src="Chameleons.png">
+                    </div>
+                    <div class="post-content">
+                        <div class="post-meta">March 5, 2024 • Reptiles</div>
+                        <h2 class="post-title">Chameleons: The Color-Changing Marvels</h2>
+                        <p class="post-excerpt">Dive into the fascinating world of chameleons and discover the truth behind their color-changing abilities, unique eyes, and incredible hunting precision.</p>
+                        <a href="#" class="read-more">Read More →</a>
+                    </div>
+                </article>
+                <article class="blog-post" data-category="birds" data-id="6">
+                    <div class="post-image">
+                        <img src="Eagles.png">
+                    </div>
+                    <div class="post-content">
+                        <div class="post-meta">March 3, 2024 • Birds</div>
+                        <h2 class="post-title">Bald Eagles: Symbol of Freedom and Power</h2>
+                        <p class="post-excerpt">Learn about the remarkable recovery of America's national bird from near extinction to conservation success story, and their impressive hunting abilities.</p>
+                        <a href="#" class="read-more">Read More →</a>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </main>
+
+    <!-- Modal for full article view -->
+    <div id="articleModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div id="modalBody">
+                <!-- Article content will be loaded here -->
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Wild Life Chronicles. Dedicated to wildlife conservation and education.</p>
+        </div>
+    </footer>
+</body>
+</html>
