@@ -98,7 +98,7 @@ main {
     font-size: 0.9rem;
 }
 .filter-btn:hover, .filter-btn.active {
-    background: #3498db;
+    background: #4ea96b;
     color: white;
 }
 
@@ -154,7 +154,7 @@ main {
     margin-bottom: 1rem;
 }
 .read-more {
-    color: #3498db;
+    color: #537e6f;
     text-decoration: none;
     font-weight: 500;
     display: inline-flex;
@@ -162,7 +162,7 @@ main {
     transition: color 0.3s ease;
 }
 .read-more:hover {
-    color: #2980b9;
+    color: #4ea96b;
 }
 
 footer {
