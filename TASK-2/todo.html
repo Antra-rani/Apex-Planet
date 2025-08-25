@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trackify 📋 - Task Manager</title>
+    <link rel="stylesheet" href="todo.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <h1 class="app-title">📋 Trackify</h1>
+                <div class="stats">
+                    <div class="stat">
+                        <span class="stat-number" id="total-tasks">0</span>
+                        <span class="stat-label">Total</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number" id="pending-tasks">0</span>
+                        <span class="stat-label">Pending</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number" id="completed-tasks">0</span>
+                        <span class="stat-label">Completed</span>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Add Task Section -->
+            <section class="add-task-section">
+                <div class="card">
+                    <h2>✨ Add New Task</h2>
+                    <form id="add-task-form" class="add-task-form">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="task-name" class="form-label">Task Name *</label>
+                                <input 
+                                    type="text" 
+                                    id="task-name" 
+                                    class="form-control" 
+                                    placeholder="What needs to be done?"
+                                >
+                                <div class="error-message" id="task-name-error"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="task-category" class="form-label">Category *</label>
+                                <select id="task-category" class="form-control" required>
+                                    <option value="">Choose a category...</option>
+                                </select>
+                                <div class="error-message" id="task-category-error"></div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="task-priority" class="form-label">Priority</label>
+                                <select id="task-priority" class="form-control">
+                                    <option value="medium">Medium ⚡</option>
+                                    <option value="high">High 🔥</option>
+                                    <option value="low">Low 🌿</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="task-deadline" class="form-label">Deadline</label>
+                                <input 
+                                    type="date" 
+                                    id="task-deadline" 
+                                    class="form-control"
+                                >
+                                <div class="error-message" id="task-deadline-error"></div>
+                            </div>
+                        </div>
+                        
+                        <button type="submit" class="btn btn--primary btn--full-width add-task-btn">
+                            ➕ Add Task
+                        </button>
+                    </form>
+                </div>
+            </section>
+
+            <!-- Filters Section -->
+            <section class="filters-section">
+                <div class="card">
+                    <h3>🔍 Filters & Categories</h3>
+                    <div class="filters">
+                        <div class="filter-group">
+                            <label class="filter-label">Status:</label>
+                            <div class="filter-buttons">
+                                <button class="filter-btn active" data-filter="all">All</button>
+                                <button class="filter-btn" data-filter="pending">Pending</button>
+                                <button class="filter-btn" data-filter="completed">Completed</button>
+                            </div>
+                        </div>
+                        
+                        <div class="filter-group">
+                            <label class="filter-label">Category:</label>
+                            <div class="category-filters" id="category-filters">
+                                <button class="category-btn active" data-category="all">All</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Tasks Section -->
+            <section class="tasks-section">
+                <div class="tasks-header">
+                    <h3>📋 Your Tasks</h3>
+                    <div class="sort-options">
+                        <select id="sort-tasks" class="form-control">
+                            <option value="created">Sort by Created</option>
+                            <option value="deadline">Sort by Deadline</option>
+                            <option value="priority">Sort by Priority</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="tasks-grid" id="tasks-grid">
+                    <div class="empty-state" id="empty-state">
+                        <div class="empty-icon">🌟</div>
+                        <h3>No tasks yet!</h3>
+                        <p>Create your first task to get started on your sunny day!</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>Made with &hearts; for productive days</p>
+        </footer>
+    </div>
+
+    <!-- Edit Task Modal -->
+    <div id="edit-modal" class="modal hidden">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>✏️ Edit Task</h3>
+                <button class="close-btn" id="close-modal">✖️</button>
+            </div>
+            <div class="modal-body">
+                <form id="edit-task-form">
+                    <div class="form-group">
+                        <label for="edit-task-name" class="form-label">Task Name *</label>
+                        <input 
+                            type="text" 
+                            id="edit-task-name" 
+                            class="form-control" 
+                        >
+                        <div class="error-message" id="edit-task-name-error"></div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="edit-task-category" class="form-label">Category *</label>
+                        <select id="edit-task-category" class="form-control" required>
+                            <option value="">Choose a category...</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="edit-task-priority" class="form-label">Priority</label>
+                        <select id="edit-task-priority" class="form-control">
+                            <option value="medium">Medium ⚡</option>
+                            <option value="high">High 🔥</option>
+                            <option value="low">Low 🌿</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="edit-task-deadline" class="form-label">Deadline</label>
+                        <input 
+                            type="date" 
+                            id="edit-task-deadline" 
+                            class="form-control"
+                        >
+                        <div class="error-message" id="edit-task-deadline-error"></div>
+                    </div>
+                    
+                    <div class="modal-actions">
+                        <button type="button" class="btn btn--secondary" id="cancel-edit">Cancel</button>
+                        <button type="submit" class="btn btn--primary">💾 Save Changes</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Confirmation Modal -->
+    <div id="confirm-modal" class="modal hidden">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>🗑️ Confirm Delete</h3>
+            </div>
+            <div class="modal-body">
+                <p>Are you sure you want to delete this task? This action cannot be undone.</p>
+                <div class="modal-actions">
+                    <button type="button" class="btn btn--secondary" id="cancel-delete">Cancel</button>
+                    <button type="button" class="btn" id="confirm-delete" style="background-color: #F44336; color: white;">🗑️ Delete</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="todo.js"></script>
+</body>
+</html>
