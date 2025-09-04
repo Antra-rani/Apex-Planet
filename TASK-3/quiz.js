@@ -1,4 +1,3 @@
-
 // QuizzyPop - Interactive Educational Quiz Platform
 class QuizzyPop {
     constructor() {
